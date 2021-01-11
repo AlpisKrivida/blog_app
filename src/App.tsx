@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Navigation from './components/navigation'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom'
+import PageRenderer from './page-renderer'
+import './assets/SCSS/base.scss'
 
 function App() {
+  const user= {
+    firstName: 'test',
+    lastName: 'test2'
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <div className='App'>
+        <Navigation user={user} />
+        <Switch>
+          <Route path="/:page" component={PageRenderer} />
+          <Route path="/" render={() => <Redirect to="home"/> } />
+           <Route component={undefined} /> 
+        </Switch>
+      </div>
+    </Router>
+  )
 }
 
-export default App;
+export default App

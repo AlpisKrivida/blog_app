@@ -1,12 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'antd/dist/antd.css'
+import '@quasar/extras/ionicons-v5/index'
+import '@quasar/extras/ionicons-v4'
+
+import {ApolloProvider, createHttpLink, ApolloClient, HttpLink, InMemoryCache} from '@apollo/client'
+
+
+// const cache = new InMemoryCache()
+
+// const client = new ApolloClient({
+//   cache: new InMemoryCache(),
+//   link: createHttpLink({uri:'http://localhost:4000/graphql'})
+// })
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <ApolloProvider client={client}> */}
+      <App />
+    {/* </ApolloProvider> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
