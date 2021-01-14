@@ -6,21 +6,24 @@ import 'antd/dist/antd.css'
 import '@quasar/extras/ionicons-v5/index'
 import '@quasar/extras/ionicons-v4'
 
-import {ApolloProvider, createHttpLink, ApolloClient, HttpLink, InMemoryCache} from '@apollo/client'
+import {ApolloProvider, NormalizedCacheObject, createHttpLink, ApolloClient, HttpLink, InMemoryCache} from '@apollo/client'
 
 
-// const cache = new InMemoryCache()
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: createHttpLink({uri:'http://localhost:4000/graphql'})
+})
 
-// const client = new ApolloClient({
+// const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
 //   cache: new InMemoryCache(),
-//   link: createHttpLink({uri:'http://localhost:4000/graphql'})
-// })
+//   uri: 'http://localhost:4000/graphql'
+// });
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <ApolloProvider client={client}> */}
+    <ApolloProvider client={client}>
       <App />
-    {/* </ApolloProvider> */}
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
