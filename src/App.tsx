@@ -7,18 +7,15 @@ import {
   Redirect,
 } from 'react-router-dom'
 import PageRenderer from './page-renderer'
+import {Login} from './pages/Login/login'
 import './assets/SCSS/base.scss'
 
 function App() {
-  const user= {
-    firstName: 'test',
-    lastName: 'test2'
-  }
 
   return (
     <Router>
       <div className='App'>
-        <Navigation user={user} />
+        <Navigation />
         <Switch>
           <Route path="/:page" component={PageRenderer} />
           <Route path="/" render={() => <Redirect to="home"/> } />

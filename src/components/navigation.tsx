@@ -25,7 +25,7 @@ interface User {
   user: {firstName: string; lastName: string}
 }
 
-export default function Navigation({user}: User) {
+export default function Navigation() {
   const [menuActive, setMenuActive] = useState(false);
 
 
@@ -43,7 +43,7 @@ export default function Navigation({user}: User) {
         <span className="menu-avatar-container">
           <Avatar src='https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'
                   size={38} />
-          <span className="menu-avatar-name">{`${user.firstName} ${user.lastName}`}</span>
+          <span className="menu-avatar-name"></span>
         </span>  
       </div>
       <i className="ionicons icon ion-ios-menu" onClick={() => setMenuActive(!menuActive)} />

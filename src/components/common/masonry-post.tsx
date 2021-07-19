@@ -1,8 +1,7 @@
-import React from 'react'
 import { TagRow } from './'
 import { Post } from '../models/post.model'
 
-export default function MasonryPost({ post, tagsOnTop }: Post) {
+export default function MasonryPost({ post, tagsOnTop }: Post): JSX.Element {
   const windowWidth = window.innerWidth
   const imageBackground = {
     backgroundImage: `url("${
